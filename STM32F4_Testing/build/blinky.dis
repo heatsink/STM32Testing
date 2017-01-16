@@ -1,5 +1,5 @@
 
-/Users/Sean/Workspace/STM32F4/STM32F4_Templates/Barebones_MacOSX/build/blinky.elf:     file format elf32-littlearm
+/Users/Sean/Workspace/STM32F4/STM32F4_Testing/build/blinky.elf:     file format elf32-littlearm
 
 
 Disassembly of section .text:
@@ -134,8 +134,8 @@ void init_GPIO() {
  80001e4:	f000 fae0 	bl	80007a8 <RCC_AHB1PeriphClockCmd>
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
- 80001e8:	f44f 4170 	mov.w	r1, #61440	; 0xf000
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
+ 80001e8:	f24f 0104 	movw	r1, #61444	; 0xf004
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -147,7 +147,7 @@ void init_GPIO() {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
  80001f0:	9100      	str	r1, [sp, #0]
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
@@ -160,7 +160,7 @@ void init_GPIO() {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
  80001f6:	f88d 4004 	strb.w	r4, [sp, #4]
@@ -171,7 +171,7 @@ void init_GPIO() {
  80001fa:	4669      	mov	r1, sp
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -180,7 +180,7 @@ void init_GPIO() {
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
  8000200:	f88d 3007 	strb.w	r3, [sp, #7]
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -219,65 +219,64 @@ void init_GPIOA() {
  800021c:	f000 fac4 	bl	80007a8 <RCC_AHB1PeriphClockCmd>
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
- 8000220:	2102      	movs	r1, #2
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
+ 8000220:	f241 0122 	movw	r1, #4130	; 0x1022
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
- 8000222:	2300      	movs	r3, #0
+ 8000224:	2300      	movs	r3, #0
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
- 8000224:	2203      	movs	r2, #3
+ 8000226:	2203      	movs	r2, #3
 	// ---------- GPIO  for LEDS -------- //
 	// GPIOD Periph clock enable
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
- 8000226:	9100      	str	r1, [sp, #0]
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
+ 8000228:	9100      	str	r1, [sp, #0]
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
- 8000228:	2401      	movs	r4, #1
+ 800022a:	2401      	movs	r4, #1
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
- 800022a:	4807      	ldr	r0, [pc, #28]	; (8000248 <init_GPIOA+0x34>)
+ 800022c:	4806      	ldr	r0, [pc, #24]	; (8000248 <init_GPIOA+0x34>)
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
- 800022c:	f88d 4004 	strb.w	r4, [sp, #4]
+ 800022e:	f88d 4004 	strb.w	r4, [sp, #4]
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
- 8000230:	4669      	mov	r1, sp
+ 8000232:	4669      	mov	r1, sp
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
- 8000232:	f88d 3006 	strb.w	r3, [sp, #6]
+ 8000234:	f88d 3006 	strb.w	r3, [sp, #6]
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
- 8000236:	f88d 3007 	strb.w	r3, [sp, #7]
+ 8000238:	f88d 3007 	strb.w	r3, [sp, #7]
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_100MHz;
- 800023a:	f88d 2005 	strb.w	r2, [sp, #5]
+ 800023c:	f88d 2005 	strb.w	r2, [sp, #5]
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
- 800023e:	f000 fc53 	bl	8000ae8 <GPIO_Init>
+ 8000240:	f000 fc52 	bl	8000ae8 <GPIO_Init>
 }
- 8000242:	b002      	add	sp, #8
- 8000244:	bd10      	pop	{r4, pc}
- 8000246:	bf00      	nop
+ 8000244:	b002      	add	sp, #8
+ 8000246:	bd10      	pop	{r4, pc}
  8000248:	40020000 	.word	0x40020000
 
 0800024c <Default_Handler>:
@@ -400,7 +399,7 @@ void Reset_Handler(void)
  80002aa:	bf00      	nop
  80002ac:	20000000 	.word	0x20000000
  80002b0:	20000024 	.word	0x20000024
- 80002b4:	08000d58 	.word	0x08000d58
+ 80002b4:	08000ca8 	.word	0x08000ca8
  80002b8:	20000024 	.word	0x20000024
  80002bc:	20000028 	.word	0x20000028
 
@@ -3387,77 +3386,59 @@ void GPIO_PinAFConfig(GPIO_TypeDef* GPIOx, uint16_t GPIO_PinSource, uint8_t GPIO
  8000c42:	4770      	bx	lr
 
 08000c44 <main>:
+
+
+int main(void) {
+ 8000c44:	b508      	push	{r3, lr}
   while ((msTicks - curTicks) < dlyTicks);
 }
 
 void setSysTick(){
 	// ---------- SysTick timer (1ms) -------- //
 	if (SysTick_Config(SystemCoreClock / 1000)) {
- 8000c44:	4b3d      	ldr	r3, [pc, #244]	; (8000d3c <main+0xf8>)
- 8000c46:	4a3e      	ldr	r2, [pc, #248]	; (8000d40 <main+0xfc>)
- 8000c48:	681b      	ldr	r3, [r3, #0]
- 8000c4a:	fba2 2303 	umull	r2, r3, r2, r3
- 8000c4e:	099b      	lsrs	r3, r3, #6
+ 8000c46:	4b12      	ldr	r3, [pc, #72]	; (8000c90 <main+0x4c>)
+ 8000c48:	4a12      	ldr	r2, [pc, #72]	; (8000c94 <main+0x50>)
+ 8000c4a:	681b      	ldr	r3, [r3, #0]
+ 8000c4c:	fba2 2303 	umull	r2, r3, r2, r3
+ 8000c50:	099b      	lsrs	r3, r3, #6
     must contain a vendor-specific implementation of this function.
 
  */
 __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 {
   if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
- 8000c50:	3b01      	subs	r3, #1
- 8000c52:	f1b3 7f80 	cmp.w	r3, #16777216	; 0x1000000
- 8000c56:	d270      	bcs.n	8000d3a <main+0xf6>
+ 8000c52:	3b01      	subs	r3, #1
+ 8000c54:	f1b3 7f80 	cmp.w	r3, #16777216	; 0x1000000
+ 8000c58:	d218      	bcs.n	8000c8c <main+0x48>
 
   SysTick->LOAD  = ticks - 1;                                  /* set reload register */
- 8000c58:	4a3a      	ldr	r2, [pc, #232]	; (8000d44 <main+0x100>)
+ 8000c5a:	4a0f      	ldr	r2, [pc, #60]	; (8000c98 <main+0x54>)
     \param [in]  priority  Priority to set.
  */
 __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
 {
   if(IRQn < 0) {
     SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M  System Interrupts */
- 8000c5a:	483b      	ldr	r0, [pc, #236]	; (8000d48 <main+0x104>)
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-	GPIO_Init(GPIOA, &GPIO_InitStructure);
-}
-
-
-int main(void) {
- 8000c5c:	b580      	push	{r7, lr}
-{
-  if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
-
-  SysTick->LOAD  = ticks - 1;                                  /* set reload register */
-  NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Systick Interrupt */
-  SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
- 8000c5e:	2100      	movs	r1, #0
+ 8000c5c:	480f      	ldr	r0, [pc, #60]	; (8000c9c <main+0x58>)
  */
 __STATIC_INLINE uint32_t SysTick_Config(uint32_t ticks)
 {
   if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
 
   SysTick->LOAD  = ticks - 1;                                  /* set reload register */
- 8000c60:	6053      	str	r3, [r2, #4]
-    \param [in]  priority  Priority to set.
- */
-__STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
-{
-  if(IRQn < 0) {
-    SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M  System Interrupts */
- 8000c62:	24f0      	movs	r4, #240	; 0xf0
-  if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
-
-  SysTick->LOAD  = ticks - 1;                                  /* set reload register */
+ 8000c5e:	6053      	str	r3, [r2, #4]
   NVIC_SetPriority (SysTick_IRQn, (1<<__NVIC_PRIO_BITS) - 1);  /* set Priority for Systick Interrupt */
   SysTick->VAL   = 0;                                          /* Load the SysTick Counter Value */
+ 8000c60:	2100      	movs	r1, #0
   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
- 8000c64:	2307      	movs	r3, #7
+ 8000c62:	2307      	movs	r3, #7
     \param [in]  priority  Priority to set.
  */
 __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
 {
   if(IRQn < 0) {
     SCB->SHP[((uint32_t)(IRQn) & 0xF)-4] = ((priority << (8 - __NVIC_PRIO_BITS)) & 0xff); } /* set Priority for Cortex-M  System Interrupts */
+ 8000c64:	24f0      	movs	r4, #240	; 0xf0
  8000c66:	f880 4023 	strb.w	r4, [r0, #35]	; 0x23
 {
   if ((ticks - 1) > SysTick_LOAD_RELOAD_Msk)  return (1);      /* Reload value impossible */
@@ -3468,245 +3449,54 @@ __STATIC_INLINE void NVIC_SetPriority(IRQn_Type IRQn, uint32_t priority)
  8000c6a:	6091      	str	r1, [r2, #8]
   SysTick->CTRL  = SysTick_CTRL_CLKSOURCE_Msk |
  8000c6c:	6013      	str	r3, [r2, #0]
+}
+
+
+int main(void) {
 	setSysTick();
 	init_GPIO();
  8000c6e:	f7ff fab5 	bl	80001dc <init_GPIO>
+*/
+
+//Blink LED13 using Periph Driver structures, NOT functions
+    //while(true) {
+    for(;;) {
+        GPIOA->BSRRH = GPIO_Pin_1;
+ 8000c72:	4c0b      	ldr	r4, [pc, #44]	; (8000ca0 <main+0x5c>)
+
+
+int main(void) {
+	setSysTick();
+	init_GPIO();
 	init_GPIOA();
- 8000c72:	f7ff facf 	bl	8000214 <init_GPIOA>
- 8000c76:	4b35      	ldr	r3, [pc, #212]	; (8000d4c <main+0x108>)
+ 8000c74:	f7ff face 	bl	8000214 <init_GPIOA>
+ 8000c78:	4a0a      	ldr	r2, [pc, #40]	; (8000ca4 <main+0x60>)
 */
 
 //Blink LED13 using Periph Driver structures, NOT functions
-    while(true) {
-		//GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        GPIOA->BSRRL = GPIO_Pin_1;
- 8000c78:	f8df c0d8 	ldr.w	ip, [pc, #216]	; 8000d54 <main+0x110>
-		//GPIOA->BSRRH = GPIO_Pin_1;
-		Delay(1000);
-		GPIOD->BSRRH = GPIO_Pin_12;
- 8000c7c:	4934      	ldr	r1, [pc, #208]	; (8000d50 <main+0x10c>)
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
-  while ((msTicks - curTicks) < dlyTicks);
- 8000c7e:	4618      	mov	r0, r3
-*/
-
-//Blink LED13 using Periph Driver structures, NOT functions
-    while(true) {
-		//GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        GPIOA->BSRRL = GPIO_Pin_1;
- 8000c80:	f04f 0e02 	mov.w	lr, #2
-		//GPIOA->BSRRH = GPIO_Pin_1;
-		Delay(1000);
-		GPIOD->BSRRH = GPIO_Pin_12;
- 8000c84:	f44f 5780 	mov.w	r7, #4096	; 0x1000
-		GPIOD->BSRRH = GPIO_Pin_13;
- 8000c88:	f44f 5600 	mov.w	r6, #8192	; 0x2000
-
-		GPIOD->BSRRL = GPIO_Pin_13;
-		GPIOD->BSRRL = GPIO_Pin_12;
-		Delay(205);
-
-		GPIOD->BSRRH = GPIO_Pin_14;
- 8000c8c:	f44f 4580 	mov.w	r5, #16384	; 0x4000
-		GPIOD->BSRRH = GPIO_Pin_15;
- 8000c90:	f44f 4400 	mov.w	r4, #32768	; 0x8000
-*/
-
-//Blink LED13 using Periph Driver structures, NOT functions
-    while(true) {
-		//GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        GPIOA->BSRRL = GPIO_Pin_1;
- 8000c94:	f8ac e018 	strh.w	lr, [ip, #24]
+    //while(true) {
+    for(;;) {
+        GPIOA->BSRRH = GPIO_Pin_1;
+ 8000c7a:	f04f 0002 	mov.w	r0, #2
+ 8000c7e:	8360      	strh	r0, [r4, #26]
 	msTicks++;
 }
 
 //  Delays number of Systicks (happens every 1 ms)
 static void Delay(__IO uint32_t dlyTicks){                                              
   uint32_t curTicks = msTicks;
- 8000c98:	f8d3 8000 	ldr.w	r8, [r3]
+ 8000c80:	6811      	ldr	r1, [r2, #0]
   while ((msTicks - curTicks) < dlyTicks);
- 8000c9c:	681a      	ldr	r2, [r3, #0]
- 8000c9e:	ebc8 0202 	rsb	r2, r8, r2
- 8000ca2:	f5b2 7f7a 	cmp.w	r2, #1000	; 0x3e8
- 8000ca6:	d3f9      	bcc.n	8000c9c <main+0x58>
-    while(true) {
-		//GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        GPIOA->BSRRL = GPIO_Pin_1;
-		//GPIOA->BSRRH = GPIO_Pin_1;
-		Delay(1000);
-		GPIOD->BSRRH = GPIO_Pin_12;
- 8000ca8:	834f      	strh	r7, [r1, #26]
-		GPIOD->BSRRH = GPIO_Pin_13;
- 8000caa:	834e      	strh	r6, [r1, #26]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000cac:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000cb0:	681a      	ldr	r2, [r3, #0]
- 8000cb2:	ebc8 0202 	rsb	r2, r8, r2
- 8000cb6:	2acd      	cmp	r2, #205	; 0xcd
- 8000cb8:	d3fa      	bcc.n	8000cb0 <main+0x6c>
-		Delay(1000);
-		GPIOD->BSRRH = GPIO_Pin_12;
-		GPIOD->BSRRH = GPIO_Pin_13;
-		Delay(205);
-
-		GPIOD->BSRRL = GPIO_Pin_13;
- 8000cba:	830e      	strh	r6, [r1, #24]
-		GPIOD->BSRRL = GPIO_Pin_12;
- 8000cbc:	830f      	strh	r7, [r1, #24]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000cbe:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000cc2:	681a      	ldr	r2, [r3, #0]
- 8000cc4:	ebc8 0202 	rsb	r2, r8, r2
- 8000cc8:	2acd      	cmp	r2, #205	; 0xcd
- 8000cca:	d3fa      	bcc.n	8000cc2 <main+0x7e>
-
-		GPIOD->BSRRL = GPIO_Pin_13;
-		GPIOD->BSRRL = GPIO_Pin_12;
-		Delay(205);
-
-		GPIOD->BSRRH = GPIO_Pin_14;
- 8000ccc:	834d      	strh	r5, [r1, #26]
-		GPIOD->BSRRH = GPIO_Pin_15;
- 8000cce:	834c      	strh	r4, [r1, #26]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000cd0:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000cd4:	681a      	ldr	r2, [r3, #0]
- 8000cd6:	ebc8 0202 	rsb	r2, r8, r2
- 8000cda:	2acd      	cmp	r2, #205	; 0xcd
- 8000cdc:	d3fa      	bcc.n	8000cd4 <main+0x90>
-
-		GPIOD->BSRRH = GPIO_Pin_14;
-		GPIOD->BSRRH = GPIO_Pin_15;
-		Delay(205);
-
-		GPIOD->BSRRL = GPIO_Pin_14;
- 8000cde:	830d      	strh	r5, [r1, #24]
-		GPIOD->BSRRL = GPIO_Pin_15;
- 8000ce0:	830c      	strh	r4, [r1, #24]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000ce2:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000ce6:	681a      	ldr	r2, [r3, #0]
- 8000ce8:	ebc8 0202 	rsb	r2, r8, r2
- 8000cec:	2acd      	cmp	r2, #205	; 0xcd
- 8000cee:	d3fa      	bcc.n	8000ce6 <main+0xa2>
-
-		GPIOD->BSRRL = GPIO_Pin_14;
-		GPIOD->BSRRL = GPIO_Pin_15;
-		Delay(205);
-
-		GPIOD->BSRRH = GPIO_Pin_12;
- 8000cf0:	834f      	strh	r7, [r1, #26]
-		GPIOD->BSRRH = GPIO_Pin_15;
- 8000cf2:	834c      	strh	r4, [r1, #26]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000cf4:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000cf8:	681a      	ldr	r2, [r3, #0]
- 8000cfa:	ebc8 0202 	rsb	r2, r8, r2
- 8000cfe:	2acd      	cmp	r2, #205	; 0xcd
- 8000d00:	d3fa      	bcc.n	8000cf8 <main+0xb4>
-
-		GPIOD->BSRRH = GPIO_Pin_12;
-		GPIOD->BSRRH = GPIO_Pin_15;
-		Delay(205);
-
-		GPIOD->BSRRL = GPIO_Pin_12;
- 8000d02:	830f      	strh	r7, [r1, #24]
-		GPIOD->BSRRL = GPIO_Pin_15;
- 8000d04:	830c      	strh	r4, [r1, #24]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000d06:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000d0a:	681a      	ldr	r2, [r3, #0]
- 8000d0c:	ebc8 0202 	rsb	r2, r8, r2
- 8000d10:	2acd      	cmp	r2, #205	; 0xcd
- 8000d12:	d3fa      	bcc.n	8000d0a <main+0xc6>
-
-		GPIOD->BSRRL = GPIO_Pin_12;
-		GPIOD->BSRRL = GPIO_Pin_15;
-		Delay(205);
-
-		GPIOD->BSRRH = GPIO_Pin_13;
- 8000d14:	834e      	strh	r6, [r1, #26]
-		GPIOD->BSRRH = GPIO_Pin_14;
- 8000d16:	834d      	strh	r5, [r1, #26]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000d18:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000d1c:	681a      	ldr	r2, [r3, #0]
- 8000d1e:	ebc8 0202 	rsb	r2, r8, r2
- 8000d22:	2acd      	cmp	r2, #205	; 0xcd
- 8000d24:	d3fa      	bcc.n	8000d1c <main+0xd8>
-
-		GPIOD->BSRRH = GPIO_Pin_13;
-		GPIOD->BSRRH = GPIO_Pin_14;
-		Delay(205);
-
-		GPIOD->BSRRL = GPIO_Pin_13;
- 8000d26:	830e      	strh	r6, [r1, #24]
-		GPIOD->BSRRL = GPIO_Pin_14;
- 8000d28:	830d      	strh	r5, [r1, #24]
-	msTicks++;
-}
-
-//  Delays number of Systicks (happens every 1 ms)
-static void Delay(__IO uint32_t dlyTicks){                                              
-  uint32_t curTicks = msTicks;
- 8000d2a:	f8d0 8000 	ldr.w	r8, [r0]
-  while ((msTicks - curTicks) < dlyTicks);
- 8000d2e:	681a      	ldr	r2, [r3, #0]
- 8000d30:	ebc8 0202 	rsb	r2, r8, r2
- 8000d34:	2acd      	cmp	r2, #205	; 0xcd
- 8000d36:	d3fa      	bcc.n	8000d2e <main+0xea>
- 8000d38:	e7ac      	b.n	8000c94 <main+0x50>
- 8000d3a:	e7fe      	b.n	8000d3a <main+0xf6>
- 8000d3c:	20000010 	.word	0x20000010
- 8000d40:	10624dd3 	.word	0x10624dd3
- 8000d44:	e000e010 	.word	0xe000e010
- 8000d48:	e000ed00 	.word	0xe000ed00
- 8000d4c:	20000024 	.word	0x20000024
- 8000d50:	40020c00 	.word	0x40020c00
- 8000d54:	40020000 	.word	0x40020000
+ 8000c82:	6813      	ldr	r3, [r2, #0]
+ 8000c84:	1a5b      	subs	r3, r3, r1
+ 8000c86:	2bc8      	cmp	r3, #200	; 0xc8
+ 8000c88:	d3fb      	bcc.n	8000c82 <main+0x3e>
+ 8000c8a:	e7f8      	b.n	8000c7e <main+0x3a>
+ 8000c8c:	e7fe      	b.n	8000c8c <main+0x48>
+ 8000c8e:	bf00      	nop
+ 8000c90:	20000010 	.word	0x20000010
+ 8000c94:	10624dd3 	.word	0x10624dd3
+ 8000c98:	e000e010 	.word	0xe000e010
+ 8000c9c:	e000ed00 	.word	0xe000ed00
+ 8000ca0:	40020000 	.word	0x40020000
+ 8000ca4:	20000024 	.word	0x20000024

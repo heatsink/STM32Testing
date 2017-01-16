@@ -42,7 +42,7 @@ void init_GPIO() {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOD, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_13 | GPIO_Pin_14 | GPIO_Pin_15 | GPIO_Pin_2;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -58,7 +58,7 @@ void init_GPIOA() {
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 
 	// Configure PD12, PD13, PD14 in output pushpull mode
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12 | GPIO_Pin_5 | GPIO_Pin_1;
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
@@ -84,9 +84,21 @@ int i=0;
 */
 
 //Blink LED13 using Periph Driver structures, NOT functions
-    while(true) {
+    //while(true) {
+    for(;;) {
+        GPIOA->BSRRH = GPIO_Pin_1;
+        //GPIOA->BSRRH = GPIO_Pin_12;
+        Delay(200);
+        //GPIOA->BSRRL = GPIO_Pin_1;
+        //GPIOA->BSRRL = GPIO_Pin_12;
+        //Delay(200);
+
+        /*
 		//GPIO_SetBits(GPIOA, GPIO_Pin_1);
-        GPIOA->BSRRL = GPIO_Pin_1;
+        GPIOA->BSRRH = GPIO_Pin_5;
+        Delay(1000);
+        GPIOA->BSRRL = GPIO_Pin_5;
+        Delay(1000);
 		//GPIOA->BSRRH = GPIO_Pin_1;
 		Delay(1000);
 		GPIOD->BSRRH = GPIO_Pin_12;
@@ -96,6 +108,7 @@ int i=0;
 		GPIOD->BSRRL = GPIO_Pin_13;
 		GPIOD->BSRRL = GPIO_Pin_12;
 		Delay(205);
+        GPIOA->BSRRH = GPIO_Pin_1;
 
 		GPIOD->BSRRH = GPIO_Pin_14;
 		GPIOD->BSRRH = GPIO_Pin_15;
@@ -120,6 +133,7 @@ int i=0;
 		GPIOD->BSRRL = GPIO_Pin_13;
 		GPIOD->BSRRL = GPIO_Pin_14;
 		Delay(205);
+        */
 	}
 
 /*
